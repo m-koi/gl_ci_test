@@ -34,7 +34,7 @@ before_install:
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       travis_retry git clone --depth 1 -b 3.2.1 https://github.com/glfw/glfw.git ;
-      (cd glfw && mkdir build && cd build cmake -D GLFW_INSTALL=ON -D GLFW_BUILD_EXAMPLES=OFF -D GLFW_BUILD_DOCS=OFF -D GLFW_BUILD_TESTS=OFF && make install)
+      (cd glfw && mkdir build && cd build cmake -D GLFW_INSTALL=ON -D GLFW_BUILD_EXAMPLES=OFF -D GLFW_BUILD_DOCS=OFF -D GLFW_BUILD_TESTS=OFF .. && make install)
     fi
   
 script:
