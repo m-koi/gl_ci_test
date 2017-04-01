@@ -26,8 +26,6 @@ matrix:
             - libxinerama-dev
             - libxcursor-dev
             - libxi-dev
-    - os: osx
-      compiler: clang
 
 before_install:
   - if [["$TRAVIS_OS_NAME" == "osx"]]; then
