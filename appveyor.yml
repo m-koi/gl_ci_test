@@ -5,6 +5,7 @@ image:
 environment:
   GLFW_URL: https://github.com/glfw/glfw.git
   GLFW_ROOT: c:\projects\dep\glfw
+  OUT_ROOT: c:\projects\output
 install:
 - cmd: >-
     mkdir c:\projects\dep\
@@ -30,6 +31,10 @@ build_script:
 - cmd: >-
     mkdir build && cd build
 
-    cmake -G %CMAKE_GENERATOR% -D FindGLFW_Test_GLFW_ROOT=%GLFW_ROOT% ..
+    cmake -G %CMAKE_GENERATOR% -D FindGLFW_Test_GLFW_ROOT=%GLFW_ROOT% -D CMAKE_INSTALL_PREFIX=%OUT_ROOT% ..
 
     cmake --build . --config Release --target ALL_BUILD
+
+    cmake --build . --config Release --target INSTALL
+artifacts:
+- path: '%OUT_ROOT%'
