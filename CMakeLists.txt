@@ -20,3 +20,5 @@ target_link_libraries(glfw_app
     ${GLFW_LIBRARIES}
     ${OPENGL_LIBRARY}
 )
+
+install (TARGETS glfw_app RUNTIME DESTINATION bin)
