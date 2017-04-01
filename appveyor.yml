@@ -31,10 +31,10 @@ build_script:
 - cmd: >-
     mkdir build && cd build
 
-    cmake -G %CMAKE_GENERATOR% -D FindGLFW_Test_GLFW_ROOT=%GLFW_ROOT% -D CMAKE_INSTALL_PREFIX=%OUT_ROOT% ..
+    cmake -G %CMAKE_GENERATOR% -D FindGLFW_Test_GLFW_ROOT=%GLFW_ROOT% -D CMAKE_INSTALL_PREFIX=..\output ..
 
     cmake --build . --config Release --target ALL_BUILD
 
     cmake --build . --config Release --target INSTALL
 artifacts:
-- path: '%OUT_ROOT%'
+- path: .\output
