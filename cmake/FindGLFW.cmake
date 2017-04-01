@@ -143,6 +143,19 @@ else ()
 
         list(APPEND GLFW_INCLUDE_DIR "${X11_Xcursor_INCLUDE_PATH}")
         list(APPEND GLFW_LIBRARIES "${X11_Xcursor_LIB}")
+
+        if(NOT X11_Xrandr_FOUND)
+            message(FATAL_ERROR "Xrandr library not found - required for GLFW")
+        endif()
+
+        list(APPEND GLFW_LIBRARIES "${X11_Xrandr_LIB}")
+
+        if(NOT X11_xf86vmode_FOUND)
+            message(FATAL_ERROR "xf86vmode library not found - required for GLFW")
+        endif()
+
+        list(APPEND GLFW_LIBRARIES "${X11_Xxf86vm_LIB}")
+
     endif ()
 endif()
 
